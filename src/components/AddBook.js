@@ -43,9 +43,10 @@ class AddBook extends Component {
     event.preventDefault();
     this.props.addBookMutation({
       variables: {
-        name: this.state.name,
-        genre: this.state.genre,
-        authorId: this.state.authorId
+        // name: this.state.name,
+        // genre: this.state.genre,
+        // authorId: this.state.authorId
+        ...this.state
       },
       refetchQueries: [{ query: getBooksQuery }]
     });
@@ -66,7 +67,8 @@ class AddBook extends Component {
 
         <div className="field">
           <label>Author: </label>
-          <select onChange={(event) => this.setState({ AuthorId: event.target.value })}>
+          <select onChange={(event) => { this.setState({ authorId: event.target.value }); }
+          }>
             <option>Select Author</option>
             {this.displayAuthors()}
           </select>
