@@ -2,17 +2,8 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 
 import { getBooksQuery } from '../queries/queries';
-
-// const getBooksQuery = gql`
-// {
-//   books {
-//     name 
-//     id
-//   }
-// }
-// `;
-
 class BookList extends Component {
+
   displayBooks() {
     const data = this.props.data;
     if (data.loading) {
@@ -29,6 +20,7 @@ class BookList extends Component {
       });
     }
   }
+
   render() {
     return (
       <div>
